@@ -1,0 +1,8 @@
+{
+    "sql_db_host": "localhost",
+    "sql_db_user": "agrinoble_db",
+    "sql_db_pass": "byrfgcekzwbz",
+    "sql_db_name": "agrinoble_db",
+    "site_url": "https://agrinoble.com",
+    "purchase_code": "ea9d314b-cf3e-47f0-8b42-7c1f6a06c582"
+}
