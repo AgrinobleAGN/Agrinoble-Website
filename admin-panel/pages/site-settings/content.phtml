@@ -1,0 +1,201 @@
+<div class="container-fluid">
+    <div>
+        <h3>Website Information</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Settings</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Website Information</li>
+            </ol>
+        </nav>
+    </div>
+    <!-- Vertical Layout -->
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">Website Information</h6>
+                    <div class="site-settings-alert"></div>
+                    <form class="site-settings" method="POST">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Website Title</label>
+                                <input type="text" id="siteTitle" name="siteTitle" class="form-control" value="<?php echo $wo['config']['siteTitle']; ?>">
+                                <small class="admin-info">Your website general title, it will appear on Google and on your browser tab.</small>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Website Name</label>
+                                <input type="text" id="siteName" name="siteName" class="form-control" value="<?php echo $wo['config']['siteName']; ?>">
+                                <small class="admin-info">Your website name, it will on website's footer and E-mails.</small>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Website Keywords</label>
+                                <input type="text" id="siteKeywords" name="siteKeywords" class="form-control" value="<?php echo $wo['config']['siteKeywords']; ?>">
+                                <small class="admin-info">Your website's keyword, used mostly for SEO and search engines.</small>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Website Description</label>
+                                <textarea name="siteDesc" id="siteDesc" class="form-control" cols="30" rows="5"><?php echo $wo['config']['siteDesc']; ?></textarea>
+                                <small class="admin-info">Your website's description, used mostly for SEO and search engines, Max of 100 characters is recommended</small>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label main-label">Website Logo</label>
+                                <small class="admin-info">You can change your logo from <a href="<?php echo Wo_LoadAdminLinkSettings('manage-site-design'); ?>" data-ajax="?path=manage-site-design">Change Site Design</a></small>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Google Analytics Code</label>
+                                <textarea name="googleAnalytics" id="googleAnalytics" class="form-control" cols="30" rows="5"><?php echo $wo['config']['googleAnalytics']; ?></textarea>
+                                <small class="admin-info">Paste your full Google Analytics Code here to track traffic.</small>
+                            </div>
+                        </div>
+                        <input type="hidden" name="hash_id" value="<?php echo Wo_CreateSession();?>">
+                        <!-- <button type="submit" class="btn btn-primary m-t-15 waves-effect">Save</button> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">Features API Keys & Information</h6>
+                    <div class="api-settings-alert"></div>
+                    <form class="api-settings" method="POST">
+                        <div class="float-left">
+                            <label for="google_map" class="main-label">Google Maps</label>
+                            <br><small class="admin-info">Show Google Map on (Posts, Profile, Settings, Ads).</small>
+                        </div>
+                        <div class="form-group float-right switcher">
+                            <input type="hidden" name="google_map" value="0" />
+                            <input type="checkbox" name="google_map" id="chck-google_map" value="1" <?php echo ($wo['config']['google_map'] == 1) ? 'checked': '';?>>
+                            <label for="chck-google_map" class="check-trail"><span class="check-handler"></span></label>
+                        </div>
+                        <div class="clearfix"></div>
+                        
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Google Map API</label>
+                                <input type="text" id="google_map_api" name="google_map_api" class="form-control" value="<?php echo $wo['config']['google_map_api']?>">
+                                <small class="admin-info">This key is required for GEO and viewing Google Maps.</small>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Youtube API Key</label>
+                                <input type="text" id="youtube_api_key" name="youtube_api_key" class="form-control" value="<?php echo $wo['config']['youtube_api_key']?>">
+                                <small class="admin-info">This key is required for importing or posting YouTube videos.</small>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Yandex Translation API</label>
+                                <input type="text" id="yandex_translation_api" name="yandex_translation_api" class="form-control" value="<?php echo $wo['config']['yandex_translation_api']?>">
+                                <small class="admin-info">This key is required for post translation.</small>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Giphy API</label>
+                                <input type="text" id="giphy_api" name="giphy_api" class="form-control" value="<?php echo $wo['config']['giphy_api']?>">
+                                <small class="admin-info">This key is required for GIFs in messages, posts and comments.</small>
+                            </div>
+                        </div>
+                        <input type="hidden" name="hash_id" value="<?php echo Wo_CreateSession();?>">
+                        <!-- <button type="submit" class="btn btn-primary m-t-15 waves-effect">Save</button> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- #END# Vertical Layout -->
+<script>
+$(function() {
+    $('.switcher input[type=checkbox]').click(function () {
+        setToTrue = 0;
+        if ($(this).is(":checked") === true) {
+            setToTrue = 1;
+        }
+        var configName = $(this).attr('name');
+        var hash_id = $('input[name=hash_id]').val();
+        var objData = {};
+        objData[configName] = setToTrue;
+        objData['hash_id'] = hash_id;
+        $.post( Wo_Ajax_Requests_File() + '?f=admin_setting&s=update_general_setting', objData);
+    });
+
+    var setTimeOutColor = setTimeout(function (){});
+    $('select').on('change', function() {
+         clearTimeout(setTimeOutColor);
+        var thisElement = $(this);
+        var configName = thisElement.attr('name');
+        var hash_id = $('input[name=hash_id]').val();
+        var objData = {};
+        objData[configName] = this.value;
+        objData['hash_id'] = hash_id;
+        thisElement.addClass('warning');
+        $.post( Wo_Ajax_Requests_File() + '?f=admin_setting&s=update_general_setting', objData, function (data) {
+            if (data.status == 200) {
+                thisElement.removeClass('warning');
+                thisElement.addClass('success');
+            } else {
+                thisElement.addClass('error');
+            }
+            var setTimeOutColor = setTimeout(function () {
+                thisElement.removeClass('success');
+                thisElement.removeClass('warning');
+                thisElement.removeClass('error');
+            }, 2000);
+        });
+    });
+    $('input[type=text], input[type=number], textarea').on('keyup', delay(function() {
+            clearTimeout(setTimeOutColor);
+            var thisElement = $(this);
+            var configName = thisElement.attr('name');
+            var hash_id = $('input[name=hash_id]').val();
+            var objData = {};
+            objData[configName] = this.value;
+            objData['hash_id'] = hash_id;
+            thisElement.addClass('warning');
+            if (configName == 'googleAnalytics') {
+                objData['googleAnalytics_en'] = btoa($('#googleAnalytics').val());
+                 objData['googleAnalytics'] = "";
+            }
+            $.post( Wo_Ajax_Requests_File() + '?f=admin_setting&s=update_general_setting', objData, function (data) {
+                if (data.status == 200) {
+                    thisElement.removeClass('warning');
+                    thisElement.addClass('success');
+                } else {
+                    thisElement.addClass('error');
+                }
+                var setTimeOutColor = setTimeout(function () {
+                    thisElement.removeClass('success');
+                    thisElement.removeClass('warning');
+                    thisElement.removeClass('error');
+                }, 2000);
+               // thisElement.focus();
+            });
+    }, 500));
+});
+</script>
